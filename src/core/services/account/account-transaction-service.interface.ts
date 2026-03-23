@@ -3,15 +3,26 @@
  * All account services must implement this interface
  */
 export interface AccountService {
-  /**
-   * Create a new Hedera account
-   */
   createAccount(params: CreateAccountParams): AccountCreateResult;
-
-  /**
-   * Get account information (creates a transaction to query account info)
-   */
+  updateAccount(params: UpdateAccountParams): AccountUpdateResult;
   getAccountInfo(accountId: string): AccountInfoQuery;
+}
+
+export interface UpdateAccountParams {
+  accountId: string;
+  key?: string;
+  memo?: string;
+  maxAutoAssociations?: number;
+  stakedAccountId?: string;
+  stakedNodeId?: number;
+  declineStakingReward?: boolean;
+  autoRenewPeriod?: number;
+  receiverSignatureRequired?: boolean;
+  expirationTime?: Date;
+}
+
+export interface AccountUpdateResult {
+  transaction: AccountUpdateTransaction;
 }
 
 export interface AccountCreateResult {
@@ -30,4 +41,5 @@ export interface CreateAccountParams {
 import type {
   AccountCreateTransaction,
   AccountInfoQuery,
+  AccountUpdateTransaction,
 } from '@hashgraph/sdk';

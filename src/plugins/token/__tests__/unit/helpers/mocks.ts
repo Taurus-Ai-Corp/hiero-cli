@@ -306,6 +306,7 @@ export const makeAccountTransactionServiceMock =
   (): jest.Mocked<AccountService> =>
     ({
       createAccount: jest.fn(),
+      updateAccount: jest.fn(),
       getAccountInfo: jest.fn(),
       getAccountBalance: jest.fn(),
     }) as jest.Mocked<AccountService>;
