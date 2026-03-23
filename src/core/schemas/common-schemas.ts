@@ -944,3 +944,25 @@ export const ResolvedPublicKeySchema = z.object({
   keyRefId: z.string(),
   publicKey: z.string(),
 });
+
+export const NullLiteralSchema = z.literal('null');
+
+export const KeyThresholdSchema = z
+  .number()
+  .int()
+  .positive()
+  .describe('M-of-N signing threshold');
+
+export const TopicAutoRenewPeriodSchema = z
+  .number()
+  .int()
+  .positive()
+  .min(
+    2_592_000,
+    'Auto-renew period must be at least 30 days (2592000 seconds)',
+  )
+  .max(
+    8_000_000,
+    'Auto-renew period must not exceed ~92 days (8000000 seconds)',
+  )
+  .describe('Auto-renew period in seconds (30–92 days)');
