@@ -2,6 +2,7 @@ import type {
   Key,
   TopicCreateTransaction,
   TopicMessageSubmitTransaction,
+  TopicUpdateTransaction,
 } from '@hashgraph/sdk';
 
 export interface TopicCreateResult {
@@ -23,4 +24,18 @@ export interface CreateTopicParams {
 export interface SubmitMessageParams {
   topicId: string;
   message: string;
+}
+
+export interface UpdateTopicParams {
+  topicId: string;
+  memo?: string | null;
+  adminKey?: Key;
+  submitKey?: Key | null;
+  autoRenewAccountId?: string | null;
+  autoRenewPeriod?: number;
+  expirationTime?: Date;
+}
+
+export interface TopicUpdateResult {
+  transaction: TopicUpdateTransaction;
 }

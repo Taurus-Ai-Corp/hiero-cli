@@ -14,4 +14,5 @@ export {
   topicSubmitMessage,
   TopicSubmitMessageCommand,
 } from './commands/submit-message/handler';
+export { topicUpdate, TopicUpdateCommand } from './commands/update/handler';
 export { topicPluginManifest } from './manifest';
