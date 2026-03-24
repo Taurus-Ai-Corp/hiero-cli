@@ -5,6 +5,7 @@
 import type {
   TokenAssociateTransaction,
   TokenCreateTransaction,
+  TokenDeleteTransaction,
   TokenMintTransaction,
   TransferTransaction,
 } from '@hashgraph/sdk';
@@ -12,6 +13,7 @@ import type {
   NftTransferParams,
   TokenAssociationParams,
   TokenCreateParams,
+  TokenDeleteParams,
   TokenMintParams,
   TokenTransferParams,
 } from '@/core/types/token.types';
@@ -44,4 +46,6 @@ export interface TokenService {
    * Create an NFT transfer transaction (without execution)
    */
   createNftTransferTransaction(params: NftTransferParams): TransferTransaction;
+
+  createDeleteTransaction(params: TokenDeleteParams): TokenDeleteTransaction;
 }

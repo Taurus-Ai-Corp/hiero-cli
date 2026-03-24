@@ -101,3 +101,7 @@ export interface NftTransferParams {
   toAccountId: string;
   serialNumbers: number[];
 }
+
+export interface TokenDeleteParams {
+  tokenId: string;
+}

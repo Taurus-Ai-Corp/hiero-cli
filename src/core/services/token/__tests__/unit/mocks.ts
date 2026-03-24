@@ -32,6 +32,10 @@ export const createMockTokenAssociateTransaction = () => ({
   setTokenIds: jest.fn().mockReturnThis(),
 });
 
+export const createMockTokenDeleteTransaction = () => ({
+  setTokenId: jest.fn().mockReturnThis(),
+});
+
 export const createMockCustomFixedFee = () => ({
   setHbarAmount: jest.fn().mockReturnThis(),
   setAmount: jest.fn().mockReturnThis(),
